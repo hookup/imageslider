@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Slider</title>
+    
+    
+    <style>
+      #wrapper{
+        text-align: center;
+        width: 100%;
+      }
+      .img{
+        width: 100%;
+       
+      }
+      .img img{
+        width: 20%;
+        height: 300px;
+      }
+      .button{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+      .button div{
+        margin: 50px;
+      }
+      button{
+        padding: 10px;;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div class="img">
+        <img id="showimg" src="./images/img1.jpg">
+      </div>
+      <div id="image-container"></div>
+      <div class="button">
+        <div>
+          <button id="prv" name="prv">Previous</button>
+        </div>
+        <div>
+          <button id="nxt" name="nxt">Next</button>
+        </div>
+       
+      </div>
+    </div>
+
+    <script>
+
+    let images = new Array ("img1.jpg","img2.jpg","img3.jpg","img4.jpg","img5.jpg")
+
+      let imgCounter = 0;
+      nxt.onclick = () => {
+        if( imgCounter === 4 )
+        {
+          imgCounter = 0
+        }else{
+          imgCounter++;
+        }
+        
+        document.querySelector("#showimg").src="./images/"+images[imgCounter]
+      }
+      prv.onclick = () => {
+        
+        imgCounter--;
+        if( imgCounter < 0 )
+        {
+          imgCounter = 4;
+        }
+        
+        document.querySelector("#showimg").src="./images/"+images[imgCounter]
+      }
+
+    </script>
+    
+  </body>
+</html>
